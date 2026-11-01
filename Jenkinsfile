@@ -32,11 +32,15 @@ pipeline {
     
     post {
         always {
-            // Archive Allure results or HTML test result folders so you can download them from the Jenkins UI
-            archiveArtifacts artifacts: 'allure-results/**/*', allowEmptyArchive: true
-            
-            // If using the Jenkins Allure Plugin, uncomment the line below:
-            // allure includeProperties: false, results: [[path: 'allure-results']]
+            allure([
+                includeProperties: false,
+                jdk: '',
+                properties: [],
+                reportBuildPolicy: 'ALWAYS',
+                results: [[path: 'allure-results']],
+                commandline: 'allure' // Matches the name you configured in Jenkins Tools
+            ])
         }
+    } }
     }
 }
