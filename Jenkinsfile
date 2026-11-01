@@ -30,7 +30,7 @@ pipeline {
         }
     }
     
-    post {
+   post {
         always {
             allure([
                 includeProperties: false,
@@ -41,6 +41,5 @@ pipeline {
                 commandline: 'allure' // Matches the name you configured in Jenkins Tools
             ])
         }
-    } }
     }
 }
