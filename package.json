@@ -1,0 +1,23 @@
+{
+  "name": "playwright-typescript-self-healing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ParabankLab/playwright-typescript-self-healing.git"
+  },
+  "keywords": [],
+  "author": "the_stock_mine <info@thestockmine.com>",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ParabankLab/playwright-typescript-self-healing/issues"
+  },
+  "homepage": "https://github.com/ParabankLab/playwright-typescript-self-healing#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.6"
+  }
+}
