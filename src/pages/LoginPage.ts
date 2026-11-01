@@ -2,27 +2,25 @@ import { Page } from '@playwright/test';
 import { BasePage } from './BasePage';
 
 export class LoginPage extends BasePage {
-    constructor(page: Page) {
-        super(page);
-    }
+  private usernameInput = () => this.healing.locator('#invalid-username-input');
+  private passwordInput = () => this.healing.locator('#invalid-password-input');
+  private loginButton = () => this.healing.locator('#broken-login-btn');
 
-    // Locators defined cleanly within the page object
-    private usernameInput = () => this.healing.locator('#invalid-username-input', 'input[name="username"]');
-    private passwordInput = () => this.healing.locator('#invalid-password-input', 'input[name="password"]');
-    private loginButton = () => this.healing.locator('#broken-login-btn', 'input.button[value="Log In"]');
+  async navigateToLogin() {
+    // Ensure the full absolute URL is used so it doesn't hang
+    await this.page.goto('https://parabank.parasoft.com/parabank/index.htm', { 
+      waitUntil: 'domcontentloaded' 
+    });
+  }
 
-    async navigateToLogin() {
-        await this.page.goto('http://127.0.0.1:8081/parabank/index.htm');
-    }
+  async login(user: string, pass: string) {
+    const usernameField = await this.usernameInput();
+    await usernameField.fill(user);
 
-    async login(user: string, pass: string) {
-        const usernameField = await this.usernameInput();
-        await usernameField.fill(user);
+    const passwordField = await this.passwordInput();
+    await passwordField.fill(pass);
 
-        const passwordField = await this.passwordInput();
-        await passwordField.fill(pass);
-
-        const btn = await this.loginButton();
-        await btn.click();
-    }
+    const btn = await this.loginButton();
+    await btn.click();
+  }
 }
