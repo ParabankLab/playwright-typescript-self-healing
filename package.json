@@ -17,12 +17,11 @@
   },
   "homepage": "https://github.com/ParabankLab/playwright-typescript-self-healing#readme",
   "devDependencies": {
-    "@playwright/test": "^1.64.1",
-    "@types/node": "^26.6.6",
-    "allure-commandline": "^2.46.1",
-    "allure-playwright": "^3.14.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^7.0.2"
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.19.43",
+    "allure-commandline": "^2.29.0",
+    "allure-playwright": "^3.0.0",
+    "typescript": "^5.3.3"
   },
   "directories": {
     "test": "tests"
